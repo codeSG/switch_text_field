@@ -37,40 +37,40 @@ Use it as follows:
 ```dart
 SwitchTextField(),
 ```
-Above code will build widget with default parameters, though their are some customizable properties like text_color, icon_color, background_color, icon_background_color, text_icon, text_field_icon etc.
+Above code will build widget with default parameters, though their are some customizable properties like textColor, iconColor, backgroundColor, iconBackgroundColor, textIcon, textFieldIcon etc.
 
 ### Material Example 2:
 ```dart
-SwitchTextField(  
-  background_color: Colors.black,  
-  icon_color: Colors.black,  
-  icon_background_color: Colors.white,  
-  text_color: Colors.white,  
-  isEditing: false,  
-  text_icon: Icons.cancel_outlined,  
-  text_field_icon: Icons.add,  
-  text_field_hint: "Enter title... ",  
-),
+SwitchTextField(
+backgroundColor: Colors.black,
+iconColor: Colors.black,
+iconBackgroundColor: Colors.white,
+textColor: Colors.white,
+isEditing: false,
+textIcon: Icons.cancel_outlined,
+textFieldIcon: Icons.add,
+textFieldHint: "Enter title... ",
+)
 ```
 In the code above, the some customizable properties allows us to change colors, icons and text properties for the widget[Details below].
 
 ## Parameters
 
-`background_color` : `[Color]`  Background color for the container.
+`backgroundColor` : `[Color]`  Background color for the container.
 
-`icon_color` : `[Color]`Color for the icon.
+`iconColor` : `[Color]`Color for the icon.
 
-`icon_background_color` : `[Color]`Background color for icon button.
+`iconBackgroundColor` : `[Color]`Background color for icon button.
 
-`text_color` : `[Color]`Color for the text.
+`textColor` : `[Color]`Color for the text.
 
-`font_size` : `[Double]`Font size for the text and text field.
+`fontSize` : `[Double]`Font size for the text and text field.
 
-`text_field_hint` : `[String]`Hint for the text field to be shown at the initial.
+`textFieldHint` : `[String]`Hint for the text field to be shown at the initial.
 
-`text_field_icon` : `[IconData]`Icon to be shown along text field.
+`textFieldIcon` : `[IconData]`Icon to be shown along text field.
 
-`text_icon` : `[IconData]`Icon to be shown along uneditable text.
+`textIcon` : `[IconData]`Icon to be shown along uneditable text.
 
 `isEditing` : `[Bool]`Current state of the widget: true means TextField is editable otherwise false means non-editable content.
 
