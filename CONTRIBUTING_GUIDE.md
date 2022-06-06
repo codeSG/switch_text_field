@@ -1,4 +1,4 @@
-# Contributing to TypeAheadField
+# Contributing to SwitchTextField
 
 ## Create a new issue
 

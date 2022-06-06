@@ -3,37 +3,43 @@ library switch_text_field;
 import 'package:flutter/material.dart';
 
 class SwitchTextField extends StatefulWidget {
-  // Background color for the container.
-  final Color background_color;
-  // Color for the icon.
-  final Color icon_color;
-  // Background color for icon button.
-  final Color icon_background_color;
-  // Color for the text.
-  final Color text_color;
+  /// Background color for the container.
+  final Color backgroundColor;
 
-  // Font size for the text and text field.
-  final double font_size;
+  /// Color for the icon.
+  final Color iconColor;
 
-  // Hint for the text field to be shown at the initial.
-  final String text_field_hint;
-  // Icon to be shown along text field.
-  final IconData text_field_icon;
-  //Icon to be shown along uneditable text.
-  final IconData text_icon;
+  /// Background color for icon button.
+  final Color iconBackgroundColor;
 
-  // Current state of the widget: true means TextField is editable otherwise false means non-editable content.
+  /// Color for the text.
+  final Color textColor;
+
+  /// Font size for the text and text field.
+  final double fontSize;
+
+  /// Hint for the text field to be shown at the initial.
+  final String textFieldHint;
+
+  /// Icon to be shown along text field.
+  final IconData textFieldIcon;
+
+  /// Icon to be shown along uneditable text.
+  final IconData textIcon;
+
+  /// initial state of the widget: true means TextField is editable otherwise false means non-editable content.
   final bool isEditing;
 
   const SwitchTextField(
-      {this.background_color = Colors.blue,
-      this.icon_color = Colors.white,
-      this.icon_background_color = Colors.black,
-      this.text_color = Colors.black,
-      this.font_size = 16.0,
-      this.text_field_hint = "Edit me",
-      this.text_field_icon = Icons.check,
-      this.text_icon = Icons.edit,
+      {super.key,
+      this.backgroundColor = Colors.blue,
+      this.iconColor = Colors.white,
+      this.iconBackgroundColor = Colors.black,
+      this.textColor = Colors.black,
+      this.fontSize = 16.0,
+      this.textFieldHint = "Edit me",
+      this.textFieldIcon = Icons.check,
+      this.textIcon = Icons.edit,
       this.isEditing = true});
 
   @override
@@ -41,16 +47,17 @@ class SwitchTextField extends StatefulWidget {
 }
 
 class _SwitchTextFieldState extends State<SwitchTextField> {
-  // Edited or shown text.
+  /// Edited or shown text.
   String textContent = "";
   final TextEditingController controller = TextEditingController();
 
+  /// current mode of the widget: TextField or Text.
   late bool _isEditing = widget.isEditing;
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
-        color: widget.background_color,
+        color: widget.backgroundColor,
         margin: EdgeInsets.all(5),
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: _isEditing
@@ -61,10 +68,10 @@ class _SwitchTextFieldState extends State<SwitchTextField> {
                       child: TextField(
                         showCursor: true,
                         style: TextStyle(
-                            color: widget.text_color,
-                            fontSize: widget.font_size,
-                            textBaseline: TextBaseline.alphabetic),
-                        cursorColor: widget.text_color,
+                          color: widget.textColor,
+                          fontSize: widget.fontSize,
+                        ),
+                        cursorColor: widget.textColor,
                         controller: controller,
                         onTap: () {
                           setState(() {
@@ -72,14 +79,16 @@ class _SwitchTextFieldState extends State<SwitchTextField> {
                           });
                         },
                         decoration:
-                            InputDecoration(hintText: widget.text_field_hint),
+                            InputDecoration(hintText: widget.textFieldHint),
                       )),
                   ElevatedButton(
-                    child:
-                        Icon(widget.text_field_icon, color: widget.icon_color),
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),
-                      primary: widget.icon_background_color, // <-- Button color
+                      primary: widget.iconBackgroundColor, // <-- Button color
+                    ),
+                    child: Icon(
+                      widget.textFieldIcon,
+                      color: widget.iconColor,
                     ),
                     onPressed: () {
                       setState(() {
@@ -97,14 +106,17 @@ class _SwitchTextFieldState extends State<SwitchTextField> {
                     child: Text(
                       textContent,
                       style: TextStyle(
-                          color: widget.text_color, fontSize: widget.font_size),
+                          color: widget.textColor, fontSize: widget.fontSize),
                     ),
                   ),
                   ElevatedButton(
-                    child: Icon(widget.text_icon, color: widget.icon_color),
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),
-                      primary: widget.icon_background_color, // <-- Button color
+                      primary: widget.iconBackgroundColor, // <-- Button color
+                    ),
+                    child: Icon(
+                      widget.textIcon,
+                      color: widget.iconColor,
                     ),
                     onPressed: () {
                       setState(() {
